@@ -5,7 +5,7 @@ import { RevealPhoto, RevealMeter } from "@/components/RevealPhoto";
 import { DemoBadge } from "@/components/AppShell";
 import { buttonVariants } from "@/components/ui-kit";
 import { REVEAL_STAGES } from "@/lib/reveal";
-import maya from "@/assets/demo-maya.jpg";
+import maya from "@/assets/demo-maya.svg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
