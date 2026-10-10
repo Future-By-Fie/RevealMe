@@ -41,7 +41,9 @@ bun run test                    # Vitest unit tests (incl. src/lib/reveal.test.t
 bun run build                   # production build (no deployment)
 ```
 
-CI: `.github/workflows/ci.yml` runs install, lint, test and build on pushes to `main` and on pull requests. It does not deploy.
+CI: the repository workflow `.github/workflows/revealme-core-tests.yml` runs the reveal-engine tests on relevant pushes and pull requests. It does not deploy.
+
+The original Lovable JPG portraits are not included in this GitHub snapshot. To keep the demo self-contained, this snapshot uses simple SVG portrait placeholders in `src/assets/`; these can be replaced with the original licensed/generated image assets later.
 
 ## Moving to a real backend
 1. Enable a database + email/password auth.
