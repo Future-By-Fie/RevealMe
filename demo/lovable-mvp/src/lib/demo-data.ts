@@ -2,10 +2,10 @@
  * DEMO DATA ONLY — fictional people with generated photos.
  * Kept separate so it can be swapped for database queries later.
  */
-import maya from "@/assets/demo-maya.jpg";
-import jonas from "@/assets/demo-jonas.jpg";
-import lea from "@/assets/demo-lea.jpg";
-import sam from "@/assets/demo-sam.jpg";
+import maya from "@/assets/demo-maya.svg";
+import jonas from "@/assets/demo-jonas.svg";
+import lea from "@/assets/demo-lea.svg";
+import sam from "@/assets/demo-sam.svg";
 
 export type DemoProfile = {
   id: string;
