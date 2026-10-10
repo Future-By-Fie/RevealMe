@@ -27,11 +27,16 @@ export function blurFor(level: number): number {
 
 export function stageLabel(level: number): string {
   switch (clampLevel(level)) {
-    case 0: return "Hidden";
-    case 25: return "A glimpse";
-    case 50: return "Halfway";
-    case 75: return "Almost there";
-    default: return "Revealed";
+    case 0:
+      return "Hidden";
+    case 25:
+      return "A glimpse";
+    case 50:
+      return "Halfway";
+    case 75:
+      return "Almost there";
+    default:
+      return "Revealed";
   }
 }
 
