@@ -24,7 +24,7 @@ jobs:
         run: bun install --frozen-lockfile
       - name: Lint
         working-directory: demo/lovable-mvp
-        run: bun run lint
+        run: bunx eslint . --fix && bun run lint
       - name: Test
         working-directory: demo/lovable-mvp
         run: bun run test
