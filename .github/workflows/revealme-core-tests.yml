@@ -1,0 +1,33 @@
+name: RevealMe core tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "demo/lovable-mvp/src/lib/reveal.ts"
+      - "demo/lovable-mvp/src/lib/reveal.test.ts"
+      - "demo/lovable-mvp/package.json"
+      - "demo/lovable-mvp/bun.lock"
+      - ".github/workflows/revealme-core-tests.yml"
+  pull_request:
+    paths:
+      - "demo/lovable-mvp/src/lib/reveal.ts"
+      - "demo/lovable-mvp/src/lib/reveal.test.ts"
+      - "demo/lovable-mvp/package.json"
+      - "demo/lovable-mvp/bun.lock"
+      - ".github/workflows/revealme-core-tests.yml"
+
+jobs:
+  reveal-engine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.3"
+      - name: Install dependencies
+        working-directory: demo/lovable-mvp
+        run: bun install --frozen-lockfile
+      - name: Test reveal engine
+        working-directory: demo/lovable-mvp
+        run: bunx vitest run src/lib/reveal.test.ts
