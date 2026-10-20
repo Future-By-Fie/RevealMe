@@ -73,3 +73,20 @@ describe("isMutual", () => {
     expect(isMutual(0, false)).toBe(false);
   });
 });
+describe("reveal safety boundaries (demo-only)", () => {
+  it("never treats a partial stage as mutual, even when the other party agrees", () => {
+    for (const stage of REVEAL_STAGES.filter((value) => value < 100)) {
+      expect(isMutual(stage, true)).toBe(false);
+    }
+  });
+  it("returns the hidden stage for invalid numeric progress", () => {
+    expect(clampLevel(Number.NaN)).toBe(0);
+    expect(clampLevel(Number.NEGATIVE_INFINITY)).toBe(0);
+  });
+  it("keeps visual blur monotonically decreasing", () => {
+    const values = REVEAL_STAGES.map(blurFor);
+    for (let i = 1; i < values.length; i++) {
+      expect(values[i]).toBeLessThanOrEqual(values[i - 1]!);
+    }
+  });
+});
