@@ -46,3 +46,7 @@ The MVP uses local/demo data. A production architecture is outlined in the docum
 RevealMe is an independent Future-by-Fie concept: an exploration of how interaction design can change the order in which people discover one another.
 
 This repository is intentionally honest about prototype status and unresolved production questions.
+
+## Collaboration & rights
+
+This public repository is available for evaluation; it is **not currently offered under an open-source license**. We are open to conversations with potential technical and commercial partners, but contributions and reuse require prior written agreement. See [Collaboration & intellectual property](COLLABORATION.md) and [Build with us](https://www.future-by-fie.com/#partners).
