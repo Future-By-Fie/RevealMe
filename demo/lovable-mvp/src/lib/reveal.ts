@@ -11,12 +11,13 @@ export const REVEAL_STAGES = [0, 25, 50, 75, 100] as const;
 export type RevealLevel = (typeof REVEAL_STAGES)[number];
 
 export function clampLevel(n: number): RevealLevel {
+  if (!Number.isFinite(n)) return 0;
   const found = [...REVEAL_STAGES].reverse().find((s) => n >= s);
   return (found ?? 0) as RevealLevel;
 }
 
 export function nextLevel(level: number): RevealLevel {
-  return clampLevel(Math.min(100, level + 25));
+  return Number.isFinite(level) ? clampLevel(Math.min(100, level + 25)) : 0;
 }
 
 const BLUR: Record<RevealLevel, number> = { 0: 32, 25: 20, 50: 11, 75: 4, 100: 0 };
