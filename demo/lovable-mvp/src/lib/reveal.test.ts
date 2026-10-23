@@ -16,6 +16,14 @@ describe("clampLevel", () => {
     expect(clampLevel(101)).toBe(100);
     expect(clampLevel(9999)).toBe(100);
   });
+  it("fails closed for non-finite values", () => {
+    for (const value of [NaN, Infinity, -Infinity]) {
+      expect(clampLevel(value)).toBe(0);
+      expect(blurFor(value)).toBe(32);
+      expect(isMutual(value, true)).toBe(false);
+      expect(nextLevel(value)).toBe(0);
+    }
+  });
   it("keeps exact stage boundaries", () => {
     for (const s of REVEAL_STAGES) expect(clampLevel(s)).toBe(s);
   });
